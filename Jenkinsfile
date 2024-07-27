@@ -12,7 +12,7 @@ pipeline {
 
         stage ('Pushing the Docker image to DockerHub') {
             steps {
-                sh 'docker push yasminjeelani/myjavaimage:v1'
+                sh 'docker push avinashbalaji/javaimage:v1'
             }
         }
         
