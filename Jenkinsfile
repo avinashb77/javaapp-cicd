@@ -6,7 +6,7 @@ pipeline {
         stage ('Docker login & Building image') {
             steps {
                 sh ' docker login -u $DOCKER_USER -p $DOCKER_PASS '
-                sh 'docker build -t yasminjeelani/myjavaimage:v1 .'
+                sh 'docker build -t avinashbalaji/javaimg:v1 .'
             }
         }
 
@@ -21,7 +21,7 @@ pipeline {
                 script {
                     sshagent(['ssh']) {
                         // Execute the command within the sshagent block using sh step
-                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.233.238.185 "docker run -d -it --name javaapp -p 80:8080 yasminjeelani/myjavaimage:v1"'
+                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.85.30.90 "docker run -d -it --name javaapp -p 80:8080 avinashbalaji/javaimg:v1"'
                     }
                 }
             }
